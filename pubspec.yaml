@@ -1,7 +1,9 @@
 name: asset_manager_cli
-description: A sample command-line application.
-version: 0.1.0
-# homepage: https://www.example.com
+description: Auto-generate the assets code and add it to your pubspec.yaml .
+version: 0.1.0-dev.0
+homepage: https://github.com/rutvik110/asset_manager
+funding:
+ - https://www.buymeacoffee.com/takrutvik
 
 environment:
   sdk: '>=2.18.0 <3.0.0'
@@ -17,4 +19,3 @@ dev_dependencies:
   test: ^1.16.0
 
 
-flutter:    

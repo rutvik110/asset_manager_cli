@@ -1,8 +1,13 @@
 # Asset Manager
 
-### Asset manager is an dart cli application to auto-generate the assets code and add it to your pubspec.yaml .
+<p align="center">
+	<a href="https://github.com/rutvik110/asset_manager"  target="_blank"><img src="https://img.shields.io/pub/v/asset_manager.svg" alt="Pub.dev Badge"></a>
+	<a href="https://opensource.org/licenses/MIT" rel="noopener" target="_blank"><img src="https://img.shields.io/badge/license-MIT-purple.svg" alt="MIT License Badge"></a>
+</p>
 
-// gif of asset generation
+Asset manager helps you auto-generate the assets code and add it to your pubspec.yaml .
+
+<img src="https://github.com/rutvik110/asset_manager/blob/master/assets/add_demo.gif?raw=true">
 
 ## Quick start
 
@@ -56,4 +61,8 @@ Font file name ---> font1-style-weight.ttf
                      Font family name
 
 ```
+
+## Support the project
+
+[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/takrutvik)
 
