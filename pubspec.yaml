@@ -8,6 +8,7 @@ environment:
 
 dependencies:
   args: ^2.3.1
+  mason_logger: ^0.1.2
 executables:
   asset_manager:
 
@@ -17,22 +18,3 @@ dev_dependencies:
 
 
 flutter:    
-   
-  assets:
-    - assets/images
-    - assets/images/pokemon
-    - assets/images/beyblade
-  fonts:
-    - family: Permanent_Marker
-      fonts:
-        - asset: assets/fonts/Permanent_Marker/PermanentMarker-Regular-800.ttf
-          weight: 800
-          style: regular
-    - family: Random
-      fonts:
-        - asset: assets/fonts/Random/Random-Italic-700.ttf
-          weight: 700
-          style: italic
-        - asset: assets/fonts/Random/Random-Regular-800 copy.ttf
-          weight: 800 copy
-          style: regular
