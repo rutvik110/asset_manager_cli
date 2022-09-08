@@ -48,7 +48,7 @@ Available commands:
 
     final openedFile = pubspecFile.readAsLinesSync();
     final addAfterLine =
-        openedFile.indexWhere(((element) => element.contains("flutter:")));
+        openedFile.indexWhere(((element) => element == "flutter:"));
 
     openedFile.insert(addAfterLine + 1, "\n  assets:");
 
