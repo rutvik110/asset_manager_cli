@@ -1,13 +1,13 @@
 # Asset Manager
 
 <p align="center">
-	<a href="https://github.com/rutvik110/asset_manager"  target="_blank"><img src="https://img.shields.io/pub/v/asset_manager.svg" alt="Pub.dev Badge"></a>
+	<a href="https://github.com/rutvik110/asset_manager_cli"  target="_blank"><img src="https://img.shields.io/pub/v/asset_manager_cli.svg" alt="Pub.dev Badge"></a>
 	<a href="https://opensource.org/licenses/MIT" rel="noopener" target="_blank"><img src="https://img.shields.io/badge/license-MIT-purple.svg" alt="MIT License Badge"></a>
 </p>
 
 Asset manager helps you auto-generate the assets code and add it to your pubspec.yaml .
 
-<img src="https://github.com/rutvik110/asset_manager/blob/master/assets/add_demo.gif?raw=true">
+<img src="https://github.com/rutvik110/asset_manager_cli/blob/master/assets/add_demo.gif?raw=true">
 
 ## Quick start
 
