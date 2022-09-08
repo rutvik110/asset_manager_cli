@@ -36,15 +36,15 @@ The cli assumes the following structure for your assets folder.
      |---fonts/
            | 
            |---font1/
-           |    |---font1-style-weight.ttf
-           |    |---font1-style-weight.ttf
-           |    |---font1-style-weight.ttf
+           |    |---font1-style-weight1.ttf
+           |    |---font1-style-weight2.ttf
+           |    |---font1-style-weight3.ttf
            |
            |
            |---font2/
-                |---font2-style-weight.ttf
-                |---font2-style-weight.ttf
-                |---font2-style-weight.ttf
+                |---font2-style-weight1.ttf
+                |---font2-style-weight2.ttf
+                |---font2-style-weight3.ttf
        
 ```
 
