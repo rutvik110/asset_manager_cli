@@ -1,6 +1,6 @@
 name: asset_manager_cli
 description: Auto-generate the assets code and add it to your pubspec.yaml .
-version: 0.1.0-dev.0+1
+version: 0.1.0-dev.0+2
 homepage: https://github.com/rutvik110/asset_manager_cli
 funding:
  - https://www.buymeacoffee.com/takrutvik
