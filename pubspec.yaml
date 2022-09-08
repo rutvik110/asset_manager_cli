@@ -1,0 +1,38 @@
+name: asset_manager
+description: A sample command-line application.
+version: 0.1.0
+# homepage: https://www.example.com
+
+environment:
+  sdk: '>=2.18.0 <3.0.0'
+
+dependencies:
+  args: ^2.3.1
+executables:
+  asset_manager:
+
+dev_dependencies:
+  lints: ^2.0.0
+  test: ^1.16.0
+
+
+flutter:    
+   
+  assets:
+    - assets/images
+    - assets/images/pokemon
+    - assets/images/beyblade
+  fonts:
+    - family: Permanent_Marker
+      fonts:
+        - asset: assets/fonts/Permanent_Marker/PermanentMarker-Regular-800.ttf
+          weight: 800
+          style: regular
+    - family: Random
+      fonts:
+        - asset: assets/fonts/Random/Random-Italic-700.ttf
+          weight: 700
+          style: italic
+        - asset: assets/fonts/Random/Random-Regular-800 copy.ttf
+          weight: 800 copy
+          style: regular
