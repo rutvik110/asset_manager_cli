@@ -68,45 +68,47 @@ void addAssetsCode(Logger logger) async {
 
     // add fonts code
 
-    openedFile.insert(addAfterLine + 2 + assetsString.length, "\n  fonts:");
+    if (fontsDir.existsSync()) {
+      openedFile.insert(addAfterLine + 2 + assetsString.length, "\n  fonts:");
 
-    final fonts = fontsDir.listSync();
-    List<String> fontsString = [];
+      final fonts = fontsDir.listSync();
+      List<String> fontsString = [];
 
-    for (var font in fonts) {
-      if (font is Directory) {
-        final fontFamily = font.path.split('/').last;
-        fontsString.add("    - family: $fontFamily");
-        fontsString.add("      fonts:");
-        final fontFiles = Directory(font.path).listSync();
-        for (var fontFile in fontFiles) {
-          if (fontFile is File) {
-            final fontFileExtension =
-                fontFile.path.split('/').last.split(".").last;
-            if (fontFileExtension == "ttf") {
-              final fontFilePath = fontFile.path;
-              final fontProperties =
-                  fontFilePath.split('/').last.split('.').first.split('-');
-              final fontFileWeight = fontProperties.last;
-              final fontFileStyle = fontProperties[1].toLowerCase();
-              fontsString.add(
-                "        - asset: $fontFilePath",
-              );
-              fontsString.add(
-                "          weight: $fontFileWeight",
-              );
-              if (fontFileStyle != "regular") {
+      for (var font in fonts) {
+        if (font is Directory) {
+          final fontFamily = font.path.split('/').last;
+          fontsString.add("    - family: $fontFamily");
+          fontsString.add("      fonts:");
+          final fontFiles = Directory(font.path).listSync();
+          for (var fontFile in fontFiles) {
+            if (fontFile is File) {
+              final fontFileExtension =
+                  fontFile.path.split('/').last.split(".").last;
+              if (fontFileExtension == "ttf") {
+                final fontFilePath = fontFile.path;
+                final fontProperties =
+                    fontFilePath.split('/').last.split('.').first.split('-');
+                final fontFileWeight = fontProperties.last;
+                final fontFileStyle = fontProperties[1].toLowerCase();
                 fontsString.add(
-                  "          style: $fontFileStyle",
+                  "        - asset: $fontFilePath",
                 );
+                fontsString.add(
+                  "          weight: $fontFileWeight",
+                );
+                if (fontFileStyle != "regular") {
+                  fontsString.add(
+                    "          style: $fontFileStyle",
+                  );
+                }
               }
             }
           }
         }
       }
-    }
 
-    openedFile.insertAll(addAfterLine + 3 + assetsString.length, fontsString);
+      openedFile.insertAll(addAfterLine + 3 + assetsString.length, fontsString);
+    }
     pubspecFile.writeAsString(openedFile.join("\n"));
     progress.complete("Assets added to pubspec.yaml");
     await checkForUpdate();

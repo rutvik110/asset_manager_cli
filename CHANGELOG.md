@@ -1,3 +1,6 @@
+## 0.1.3-dev.0+4
+
+- Check added to check if fonts dir exists or not before traversing it for code generation.
 ## 0.1.2-dev.0+4
 
 - Assets code removed from pubspec.
