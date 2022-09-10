@@ -20,11 +20,19 @@ dart pub global activate asset_manager_cli
 ## Overview
 
 To auto-generate and add assets code to your pubspec.yaml, run the following command at the root of your project.
-```DART
+```
 
 asset_manager add
 
 ```
+
+To update to latest version, run the following command.
+```
+
+asset_manager update
+
+```
+
 ## ❕Note
 
 The cli assumes the following structure for your assets folder.
