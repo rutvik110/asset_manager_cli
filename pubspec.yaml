@@ -1,6 +1,6 @@
 name: asset_manager_cli
 description: Auto-generate the assets code and add it to your pubspec.yaml .
-version: 0.1.2-dev.0+3
+version: 0.1.2-dev.0+4
 homepage: https://github.com/rutvik110/asset_manager_cli
 funding:
  - https://www.buymeacoffee.com/takrutvik
@@ -22,33 +22,4 @@ dev_dependencies:
   build_version: ^2.1.1
   build_runner: ^2.2.0
 
-flutter:
 
-  assets:
-    - assets/music/
-    - assets/music/actions/
-    - assets/music/player/
-    - assets/images/
-    - assets/images/pokemon/
-    - assets/images/pokemon/water/
-    - assets/images/pokemon/water/classic/
-    - assets/images/pokemon/water/new/
-    - assets/images/pokemon/fire/
-    - assets/images/pokemon/fire/classic/
-    - assets/images/pokemon/fire/new/
-    - assets/images/beyblade/
-    - assets/images/beyblade/classic/
-    - assets/images/beyblade/new/
-
-  fonts:
-    - family: font2
-      fonts:
-        - asset: assets/fonts/font2/font2-Italic-700.ttf
-          weight: 700
-          style: italic
-        - asset: assets/fonts/font2/font2-Regular-800.ttf
-          weight: 800
-    - family: font1
-      fonts:
-        - asset: assets/fonts/font1/font1-Regular-800.ttf
-          weight: 800

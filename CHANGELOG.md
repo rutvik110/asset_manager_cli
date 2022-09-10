@@ -1,3 +1,6 @@
+## 0.1.2-dev.0+4
+
+- Assets code removed from pubspec.
 ## 0.1.2-dev.0+3
 
 - Bug fix in update logic.
