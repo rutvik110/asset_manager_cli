@@ -1,3 +1,6 @@
+## 0.1.3-dev.2+5
+
+- Latest version string updated in version file.
 ## 0.1.3-dev.2+4
 
 - Improved handling of assets directory paths.
