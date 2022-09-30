@@ -1,3 +1,9 @@
+## 0.1.3-dev.2+4
+
+- Improved handling of assets directory paths.
+## 0.1.3-dev.1+4
+
+- Removed hardcoded forward slash while adding assets directory paths. Resolves an issue which resulted in the path being invalid on windows.
 ## 0.1.3-dev.0+4
 
 - Check added to check if fonts dir exists or not before traversing it for code generation.

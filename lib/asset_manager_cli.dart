@@ -57,7 +57,7 @@ void addAssetsCode(Logger logger) async {
       final subdirectory = subdirectories[i];
       if (subdirectory is Directory) {
         if (!subdirectory.path.contains("fonts")) {
-          assetsString.add("    - ${subdirectory.path}/");
+          assetsString.add(generateAssetDirPath(subdirectory.path));
 
           assetsString.addAll(generateDirAssetsCode(subdirectory));
         }
@@ -129,7 +129,7 @@ List<String> generateDirAssetsCode(Directory directory) {
     if (subDir is Directory) {
       final subDirPath = subDir.path;
       if (!subDirPath.contains('fonts')) {
-        assetString.add("    - $subDirPath/");
+        assetString.add(generateAssetDirPath(subDirPath));
       }
       assetString.addAll(generateDirAssetsCode(subDir));
     }
@@ -140,4 +140,8 @@ List<String> generateDirAssetsCode(Directory directory) {
 
 Future<void> updateCLI() async {
   await pubUpdater.update(packageName: "asset_manager_cli");
+}
+
+String generateAssetDirPath(String path) {
+  return "    - $path";
 }
