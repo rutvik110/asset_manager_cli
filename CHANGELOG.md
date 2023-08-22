@@ -1,3 +1,8 @@
+## 1.0.0
+
+- Moved to stable release.
+- Generated path now includes the missing backslash "/" at the end.
+- Using backslash "/" as the path separater for all platforms. Earlier using the default path on windows platforms resulted in compilation errors. This update fixes that issue.
 ## 0.1.3-dev.2+5
 
 - Latest version string updated in version file.

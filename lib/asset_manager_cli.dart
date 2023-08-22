@@ -4,6 +4,7 @@ import 'package:args/args.dart';
 import 'package:asset_manager_cli/src/version.dart';
 import 'package:mason_logger/mason_logger.dart';
 import 'package:pub_updater/pub_updater.dart';
+import 'package:path/path.dart' as p;
 
 final pubUpdater = PubUpdater();
 
@@ -22,11 +23,9 @@ Future<void> checkForUpdate() async {
   }
 }
 
-void commandNotFound(
-    String commands, ArgResults argResults, Logger logger) async {
+void commandNotFound(String commands, ArgResults argResults, Logger logger) async {
   final unknownCommand = argResults.arguments[0];
-  logger.err(
-      "Command not found $unknownCommand\nDid you mean one of these commands?\n$commands");
+  logger.err("Command not found $unknownCommand\nDid you mean one of these commands?\n$commands");
   await checkForUpdate();
   exit(1);
 }
@@ -40,29 +39,18 @@ void addAssetsCode(Logger logger) async {
   final progress = logger.progress("Generating assets code");
   try {
     final assetDir = Directory('assets');
-    final fontsDir = Directory('assets/fonts');
+    final fontsDir = Directory(p.joinAll(['assets', 'fonts']));
     final pubspecFile = File('pubspec.yaml');
 
-    final subdirectories = assetDir.listSync();
-
     final openedFile = pubspecFile.readAsLinesSync();
-    final addAfterLine =
-        openedFile.indexWhere(((element) => element == "flutter:"));
+    final addAfterLine = openedFile.indexWhere(((element) => element == "flutter:"));
 
     openedFile.insert(addAfterLine + 1, "\n  assets:");
 
     List<String> assetsString = [];
     // add assets code except fonts
-    for (var i = 0; i < subdirectories.length; i++) {
-      final subdirectory = subdirectories[i];
-      if (subdirectory is Directory) {
-        if (!subdirectory.path.contains("fonts")) {
-          assetsString.add(generateAssetDirPath(subdirectory.path));
-
-          assetsString.addAll(generateDirAssetsCode(subdirectory));
-        }
-      }
-    }
+    assetsString.add(generateAssetDirPath("assets/"));
+    assetsString.addAll(generateDirAssetsCode(assetDir));
 
     openedFile.insertAll(addAfterLine + 2, assetsString);
 
@@ -82,12 +70,10 @@ void addAssetsCode(Logger logger) async {
           final fontFiles = Directory(font.path).listSync();
           for (var fontFile in fontFiles) {
             if (fontFile is File) {
-              final fontFileExtension =
-                  fontFile.path.split('/').last.split(".").last;
+              final fontFileExtension = fontFile.path.split('/').last.split(".").last;
               if (fontFileExtension == "ttf") {
                 final fontFilePath = fontFile.path;
-                final fontProperties =
-                    fontFilePath.split('/').last.split('.').first.split('-');
+                final fontProperties = fontFilePath.split('/').last.split('.').first.split('-');
                 final fontFileWeight = fontProperties.last;
                 final fontFileStyle = fontProperties[1].toLowerCase();
                 fontsString.add(
@@ -127,7 +113,7 @@ List<String> generateDirAssetsCode(Directory directory) {
 
   for (var subDir in subDirectories) {
     if (subDir is Directory) {
-      final subDirPath = subDir.path;
+      final subDirPath = "${Uri.file(subDir.path).toFilePath(windows: false)}/";
       if (!subDirPath.contains('fonts')) {
         assetString.add(generateAssetDirPath(subDirPath));
       }
